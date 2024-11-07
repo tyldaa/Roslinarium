@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const path = "src";
+const path = "";
 
 /**
  * Don't change those lines below
