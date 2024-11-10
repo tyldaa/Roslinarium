@@ -2,9 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { plantsListResponse } from "../api/mocks/plantsListResponse";
 import { apiKey } from "../config";
+import { useFavoritesPlants } from "../services/localStorage/useFavoritesPlants";
+import { useNavigate } from "react-router-dom";
 
 export const PlantListPage = () => {
   const [plants, setPlants] = useState(null);
+  const { favoritesPlants, toggleFavoritePlant } = useFavoritesPlants();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setPlants(plantsListResponse.data);
@@ -25,10 +29,18 @@ export const PlantListPage = () => {
   }
 
   return (
-    <ul>
-      {plants.map(plant => {
-        return <li key={plant.id}>{plant.common_name}</li>;
-      })}
-    </ul>
+    <>
+      <ul>
+        {plants.map(plant => {
+          return (
+            <li key={plant.id}>
+              {plant.common_name}
+              <button onClick={() => toggleFavoritePlant(plant)}>Ulubione</button>
+            </li>
+          );
+        })}
+      </ul>
+      <button onClick={() => navigate("/collection")}>Przejdź do ulubionych</button>
+    </>
   );
 };
