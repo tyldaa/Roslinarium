@@ -1,0 +1,11 @@
+.cls {
+  fill: #37461e;
+  stroke: #37461e;
+  stroke-miterlimit: 10;
+}
+
+@media screen and (max-width: 550px) {
+  .logo_container {
+    order: 1;
+  }
+}
