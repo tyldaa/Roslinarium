@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 10px 0;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  width: 120vw;
+  top: 0;
+  left: -20%;
+  height: 1px;
+  background-color: black;
+}
+
+.logo {
+  font-size: 18px;
+}
+
+.copyright {
+  color: #616161;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 550px) {
+  .copyright {
+    order: 2;
+  }
+}

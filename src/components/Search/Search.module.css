@@ -1,0 +1,46 @@
+div {
+  position: relative;
+}
+
+.search_icon {
+  width: 30px;
+  height: 28px;
+  position: absolute;
+  top: 2px;
+  left: 8px;
+}
+
+.input {
+  color: #616161;
+  border: 1px solid #616161;
+  border-radius: 20px;
+  padding: 6px 210px 6px 55px;
+  font-size: 16px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1140px) {
+  .input {
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .input {
+    padding-right: 160px;
+  }
+
+  .search_container {
+    order: 3;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .input {
+    padding-right: 100px;
+  }
+}
