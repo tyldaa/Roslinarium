@@ -1,0 +1,57 @@
+.plant_name {
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 32px;
+  border: none;
+  max-width: 350px;
+  color: #1e1e1e;
+}
+
+.oldNamePlant {
+  color: #6b8e3b;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.plant_name::placeholder {
+  color: #1e1e1e;
+}
+
+.plant_name:focus {
+  outline: none;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.edit img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1300px) {
+  .oldNamePlant {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .plant_name {
+    max-width: 300px;
+    font-size: 26px;
+  }
+
+  .edit {
+    gap: 10px;
+  }
+
+  .edit img {
+    width: 24px;
+    height: 24px;
+  }
+}

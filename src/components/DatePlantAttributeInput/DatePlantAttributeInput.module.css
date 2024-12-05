@@ -1,0 +1,62 @@
+.editing_element {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.editing_element img {
+  width: 20px;
+  cursor: pointer;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.content h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.content p,
+.edit_input {
+  font-size: 14px;
+  text-transform: lowercase;
+  margin-left: 40px;
+}
+
+.edit_input {
+  border: none;
+  width: 180px;
+  padding-bottom: 8px;
+}
+
+.edit_input:focus {
+  outline: none;
+}
+
+.edit_input::placeholder,
+.edit_input {
+  color: #1e1e1e;
+}
+
+.calendar .edit_img,
+.place .edit_img {
+  width: 20px;
+  height: 20px;
+}
+
+.error_text {
+  margin-left: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b8e3b;
+}
