@@ -1,0 +1,26 @@
+.disliked,
+.liked {
+  background-color: transparent;
+  border: none;
+  background-image: url("/assets/heart-grey.png");
+  width: 30px;
+  height: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.liked {
+  background-image: url("/assets/heart-red.png");
+}
+
+@media screen and (max-width: 1140px) {
+  .disliked,
+  .liked {
+    top: 35px;
+    right: 20px;
+  }
+}
