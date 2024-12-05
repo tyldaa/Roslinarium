@@ -1,0 +1,105 @@
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0 40px 0;
+}
+
+.banner {
+  height: 526px;
+  background-image: url(/assets/plant_monstera.png);
+  background-size: cover;
+  width: 115vw;
+  left: -10%;
+  margin-bottom: 150px;
+  color: #fff;
+}
+
+.banner h2 {
+  font-size: 48px;
+  font-weight: 700;
+  padding: 200px 0 0 350px;
+}
+
+.banner p {
+  font-size: 24px;
+  font-weight: 500;
+  padding-left: 350px;
+  margin-top: 20px;
+}
+
+.plants_collection {
+  margin: 0 0 150px 0;
+}
+
+.plants_collection ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  justify-items: center;
+  row-gap: 50px;
+}
+
+@media screen and (max-width: 1480px) {
+  .container {
+    max-width: 1125px;
+  }
+
+  .banner {
+    width: 120vw;
+    left: -20%;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .container {
+    max-width: 900px;
+  }
+
+  .plants_collection ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .plants_collection ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .banner {
+    background-position: -150px;
+  }
+
+  .banner h2 {
+    padding: 200px 0 0 150px;
+  }
+
+  .banner p {
+    padding-left: 150px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .plants_collection ul {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .banner h2 {
+    font-size: 40px;
+  }
+
+  .banner p {
+    font-size: 18px;
+  }
+}
