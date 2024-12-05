@@ -1,0 +1,20 @@
+.primary {
+  padding: 10px 30px;
+  background-color: #6b8e3b;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 2px 6px 20px #6b8e3b;
+  width: 130px;
+  cursor: pointer;
+}
+
+.primary img {
+  width: 15px;
+  height: 15px;
+}
