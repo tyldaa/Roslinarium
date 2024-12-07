@@ -8,6 +8,9 @@ div {
   position: absolute;
   top: 2px;
   left: 8px;
+  background-image: url("/assets/ic_twotone-search.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .input {

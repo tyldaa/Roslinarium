@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { plantsListResponse } from "../../api/mocks/plantsListResponse";
-import { apiKey } from "../../config";
+// import { apiKey } from "../../config";
 import { useDebounce } from "use-debounce";
 import { Search } from "../../components/Search/Search";
 import { Navigation } from "../../components/Navigation/Navigation";
@@ -13,13 +13,15 @@ import { ColorRing } from "react-loader-spinner";
 import { NextPage } from "../../components/NextPage/NextPage";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
+const { VITE_API_KEY } = import.meta.env;
+
 export const PlantListPage = () => {
   const [plants, setPlants] = useState(null);
   const [searchValue, setSearchValue] = useState("");
   const [debouncedSearch] = useDebounce(searchValue, 650);
   const params = useParams();
   const navigate = useNavigate();
-  const initialPage = params.page || 0;
+  const initialPage = params.page || 1;
   const [currentPage, setCurrentPage] = useState(initialPage);
 
   const previousPage = currentPage - 1;
@@ -27,22 +29,22 @@ export const PlantListPage = () => {
 
   useEffect(() => {
     const params = new URLSearchParams({
-      key: apiKey,
+      key: VITE_API_KEY,
       page: currentPage,
       q: debouncedSearch,
     }).toString();
-    setPlants(plantsListResponse.data);
-    // fetch(`https://perenual.com/api/species-list?${params}`)
-    //   .then(res => {
-    //     return res.json();
-    //   })
-    //   .then(res => {
-    //     setPlants(res.data);
-    //   })
-    //   .catch(err => {
-    //     // Todo error handling
-    //     console.log(err);
-    //   });
+    // setPlants(plantsListResponse.data);
+    fetch(`https://perenual.com/api/species-list?${params}`)
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        setPlants(res.data);
+      })
+      .catch(err => {
+        // Todo error handling
+        console.log(err);
+      });
   }, [debouncedSearch, currentPage]);
 
   if (!plants) {
@@ -86,7 +88,7 @@ export const PlantListPage = () => {
         </ul>
       </section>
       <div className={styles.next_pages}>
-        {previousPage >= 0 && <NextPage pageChart={"<"} onClick={() => goToPage(previousPage)} />}
+        {previousPage >= 1 && <NextPage pageChart={"<"} onClick={() => goToPage(previousPage)} />}
         <NextPage pageChart={currentPage} onClick={() => {}} />
         <NextPage pageChart={`>`} onClick={() => goToPage(nextPage)} />
       </div>

@@ -11,6 +11,8 @@ import { PlantAttributeInput } from "../../components/plantAttributeInput/plantA
 import { EditingPlantName } from "../../components/EditingPlantName/EditingPlantName";
 import { DatePlantAttributeInput } from "../../components/DatePlantAttributeInput/DatePlantAttributeInput";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const FavoritePlantInformation = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -59,6 +61,8 @@ export const FavoritePlantInformation = () => {
     );
   }
 
+  console.log("description", plant.description);
+
   return (
     <div className={styles.container}>
       <section className={styles.nav}>
@@ -78,14 +82,14 @@ export const FavoritePlantInformation = () => {
           <p className={styles.treatment_title}>Treatment & Facts</p>
           <div className={styles.content}>
             <div className={styles.watering}>
-              <img src="/assets/water.png" alt="water" />
+              <div className={styles.watering_img} style={{ backgroundImage: `url(${BASE_URL}assets/water.png)` }} />
               <h3>WATERING</h3>
             </div>
             <p>{plant.watering}</p>
           </div>
           <div className={styles.content}>
             <div className={styles.sunlight}>
-              <img src="/assets/sun.png" alt="sun" />
+              <div className={styles.sunlight_img} style={{ backgroundImage: `url(${BASE_URL}assets/sun.png)` }} />
               <h3>SUNLIGHT</h3>
             </div>
             <p>{plant.sunlight}</p>
@@ -93,14 +97,14 @@ export const FavoritePlantInformation = () => {
           <DatePlantAttributeInput
             initialValue={plant.date}
             onSave={onDateSave}
-            iconSrc={"/assets/calendar.png"}
+            iconSrc={"assets/calendar.png"}
             title={"DATE OF PURCHASE"}
-            editingPlaceholder={"e.g. 20.12.2023"}
+            editingPlaceholder={"e.g."}
           />
           <PlantAttributeInput
             initialValue={plant.place}
             onSave={onPlaceSave}
-            iconSrc={"/assets/house.png"}
+            iconSrc={"assets/house.png"}
             title={"PLACE IN THE HOUSE"}
             editingPlaceholder={"name a place in your house"}
           />

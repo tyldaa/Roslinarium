@@ -4,6 +4,8 @@ import { Logo } from "../../components/Logo/Logo";
 import { Button } from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const HomePage = () => {
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ export const HomePage = () => {
             Welcome! Start building your personal plant collection – catalog your green companions, track their growth, and keep all your care notes in one
             place. Let&rsquo;s grow together!
           </p>
-          <Button onClick={() => goToExplore()} />
+          <Button text={"Join"} iconUrl={BASE_URL + "assets/arrow_right.png"} onClick={() => goToExplore()} />
         </div>
         <div className={styles.banner}></div>
       </div>

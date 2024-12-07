@@ -48,8 +48,18 @@
   color: #1e1e1e;
 }
 
-.calendar .edit_img,
-.place .edit_img {
+.edit_img {
   width: 20px;
   height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.inputIcon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }

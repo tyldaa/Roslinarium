@@ -14,7 +14,10 @@
   cursor: pointer;
 }
 
-.primary img {
+.icon {
   width: 15px;
   height: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }

@@ -4,11 +4,14 @@ import { useLocation } from "react-router-dom";
 import { Logo } from "../../components/Logo/Logo";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { Footer } from "../../components/Footer/Footer";
-import { apiKey } from "../../config";
+// import { apiKey } from "../../config";
 import { ColorRing } from "react-loader-spinner";
 import { plantDetail } from "../../api/mocks/plantDetails";
 import { useFavoritesPlants } from "../../services/localStorage/useFavoritesPlants";
 import { FavoritePlant } from "../../components/FavoritePlant/FavoritePlant";
+
+const { VITE_API_KEY } = import.meta.env;
+const BASE_URL = import.meta.env.BASE_URL;
 
 export const PlantInformation = () => {
   const [plant, setPlant] = useState(null);
@@ -18,20 +21,18 @@ export const PlantInformation = () => {
 
   const plantId = pathname.split("/")[2];
   useEffect(() => {
-    setPlant(plantDetail);
-    // fetch(`https://perenual.com/api/species/details/${plantId}?key=${apiKey}`)
-    //   .then(res => {
-    //     console.log(res);
-    //     return res.json();
-    //   })
-    //   .then(res => {
-    //     console.log(JSON.stringify(res));
-    //     setPlant(res);
-    //   })
-    //   .catch(err => {
-    //     // Todo error handling
-    //     console.log(err);
-    //   });
+    // setPlant(plantDetail);
+    fetch(`https://perenual.com/api/species/details/${plantId}?key=${VITE_API_KEY}`)
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        setPlant(res);
+      })
+      .catch(err => {
+        // Todo error handling
+        console.log(err);
+      });
   }, [plantId]);
 
   if (!plant) {
@@ -69,14 +70,14 @@ export const PlantInformation = () => {
           <p className={styles.treatment_title}>Treatment & Facts</p>
           <div className={styles.content}>
             <div className={styles.watering}>
-              <img src="/assets/water.png" alt="water" />
+              <div className={styles.watering_img} style={{ backgroundImage: `url(${BASE_URL}assets/water.png)` }} />
               <h3>WATERING</h3>
             </div>
             <p>{plant.watering}</p>
           </div>
           <div className={styles.content}>
             <div className={styles.sunlight}>
-              <img src="/assets/sun.png" alt="sun" />
+              <div className={styles.sunlight_img} style={{ backgroundImage: `url(${BASE_URL}assets/sun.png)` }} />
               <h3>SUNLIGHT</h3>
             </div>
             <p>{plant.sunlight}</p>

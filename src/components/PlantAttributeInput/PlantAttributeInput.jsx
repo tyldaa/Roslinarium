@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./PlantAttributeInput.module.css";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const PlantAttributeInput = ({ onSave, iconSrc, title, editingPlaceholder, initialValue = "" }) => {
   const [isEditing, setEditing] = useState(false);
   const [value, setValue] = useState(initialValue);
@@ -20,10 +22,14 @@ export const PlantAttributeInput = ({ onSave, iconSrc, title, editingPlaceholder
   return (
     <div className={styles.content}>
       <div className={styles.editing_element}>
-        <img src={iconSrc} />
+        <div className={styles.inputIcon} style={{ backgroundImage: `url(${BASE_URL}${iconSrc})` }} />
         <div className={styles.edit}>
           <h3>{title}</h3>
-          <img onClick={onButtonClick} className={styles.edit_img} src={isEditing ? "/assets/save.png" : "/assets/edit.png"} alt="edit" />
+          <div
+            onClick={onButtonClick}
+            className={styles.edit_img}
+            style={{ backgroundImage: `url(${BASE_URL}${isEditing ? "assets/save.png" : "assets/edit.png"})` }}
+          />
         </div>
       </div>
       <input

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { PlantListPage } from "../pages/PlantListPage/PlantListPage";
 import { UserCollectionPage } from "../pages/UserCollectionPage/UserCollectionPage";
 import { HomePage } from "../pages/HomePage/HomePage";
@@ -9,7 +9,7 @@ import { FavoritePlantInformation } from "../pages/FavoritePlantInformation/Favo
 export const Router = () => {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/search/:page?" element={<PlantListPage />} />
@@ -17,7 +17,7 @@ export const Router = () => {
           <Route path="/collection" element={<UserCollectionPage />} />
           <Route path="/favorite-plant/*" element={<FavoritePlantInformation />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };

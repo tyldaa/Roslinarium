@@ -5,6 +5,8 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 
 dayjs.extend(customParseFormat);
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const dateRegex = /\d{1,2}\.\d{1,2}.\d{4}/;
 
 export const DatePlantAttributeInput = ({ onSave, iconSrc, title, editingPlaceholder, initialValue = "" }) => {
@@ -43,10 +45,14 @@ export const DatePlantAttributeInput = ({ onSave, iconSrc, title, editingPlaceho
   return (
     <div className={styles.content}>
       <div className={styles.editing_element}>
-        <img src={iconSrc} />
+        <div className={styles.inputIcon} style={{ backgroundImage: `url(${BASE_URL}${iconSrc})` }} />
         <div className={styles.edit}>
           <h3>{title}</h3>
-          <img onClick={onButtonClick} className={styles.edit_img} src={isEditing ? "/assets/save.png" : "/assets/edit.png"} alt="edit" />
+          <div
+            onClick={onButtonClick}
+            className={styles.edit_img}
+            style={{ backgroundImage: `url(${BASE_URL}${isEditing ? "assets/save.png" : "assets/edit.png"})` }}
+          />
         </div>
       </div>
       <input

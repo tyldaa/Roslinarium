@@ -103,6 +103,15 @@
   margin-left: 40px;
 }
 
+.watering_img,
+.sunlight_img {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @media screen and (max-width: 1480px) {
   .container {
     max-width: 1125px;
