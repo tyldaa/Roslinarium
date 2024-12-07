@@ -99,7 +99,7 @@ export const FavoritePlantInformation = () => {
             onSave={onDateSave}
             iconSrc={"assets/calendar.png"}
             title={"DATE OF PURCHASE"}
-            editingPlaceholder={"e.g."}
+            editingPlaceholder={"e.g. 30.12.2020"}
           />
           <PlantAttributeInput
             initialValue={plant.place}
